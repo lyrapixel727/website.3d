@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Wildwood Table — American Kitchen & Bar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#2A2420;
+    --cream:#F7F1E6;
+    --amber:#C9752E;
+    --olive:#5B6B4E;
+    --rust:#8C3B2E;
+    --line:rgba(42,36,32,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Karla',sans-serif;color:var(--char);background:var(--cream);line-height:1.65;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+
+  header{padding:24px 0;position:sticky;top:0;background:rgba(247,241,230,0.94);backdrop-filter:blur(6px);z-index:20;border-bottom:1px solid var(--line);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;letter-spacing:-0.01em;}
+  .logo span{color:var(--rust);}
+  nav{display:flex;align-items:center;gap:30px;}
+  nav a{font-size:0.9rem;font-weight:600;text-decoration:none;color:var(--char);}
+  nav a:hover{color:var(--rust);}
+  .nav-cta{background:var(--char);color:var(--cream)!important;padding:10px 20px;border-radius:2px;}
+  .nav-cta:hover{background:var(--rust);}
+
+  .hero{padding:70px 0 0;overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .eyebrow{font-family:'Karla',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;}
+  h1{font-family:'Fraunces',serif;font-weight:700;font-size:3.4rem;line-height:1.05;letter-spacing:-0.01em;}
+  h1 em{font-style:italic;font-weight:500;color:var(--olive);}
+  .hero p.lede{margin-top:22px;font-size:1.1rem;max-width:440px;color:#4a4136;}
+  .hero .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:14px 28px;border-radius:2px;font-weight:700;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;}
+  .btn-primary{background:var(--rust);color:var(--cream);}
+  .btn-primary:hover{background:#6f2c22;}
+  .btn-outline{border:2px solid var(--char);color:var(--char);}
+  .btn-outline:hover{background:var(--char);color:var(--cream);}
+  .hero-visual svg{width:100%;height:auto;}
+  .hours-strip{margin-top:60px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .hours-strip .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+  .hours-strip div{font-size:0.9rem;}
+  .hours-strip b{font-family:'Fraunces',serif;font-weight:700;display:block;font-size:1.1rem;}
+
+  section{padding:80px 0;}
+  .kicker{font-family:'Karla',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--rust);margin-bottom:14px;}
+  h2{font-family:'Fraunces',serif;font-weight:700;font-size:2.2rem;max-width:600px;letter-spacing:-0.01em;}
+  .section-head p{margin-top:14px;color:#4a4136;max-width:520px;}
+
+  .about{background:#EFE6D3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  .about-visual svg{width:100%;height:auto;}
+  .about-copy p{color:#4a4136;margin-bottom:16px;max-width:480px;}
+  .badge-row{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap;}
+  .badge-row div{font-size:0.85rem;}
+  .badge-row b{font-family:'Fraunces',serif;font-weight:700;display:block;font-size:1.4rem;color:var(--rust);}
+
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 40px;}
+  .menu-cat h3{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;margin-bottom:20px;color:var(--rust);border-bottom:2px solid var(--rust);display:inline-block;padding-bottom:4px;}
+  .menu-item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .menu-item .mi-name{font-weight:600;font-family:'Fraunces',serif;font-size:1.05rem;}
+  .menu-item .mi-desc{font-size:0.85rem;color:#6b6151;margin-top:3px;}
+  .menu-item .mi-price{font-family:'Karla',sans-serif;font-weight:700;white-space:nowrap;padding-top:2px;}
+
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .gallery svg{width:100%;height:auto;border-radius:4px;}
+
+  .quote-strip{background:var(--char);color:var(--cream);}
+  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .quote-card p{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;line-height:1.5;}
+  .quote-card .who{margin-top:16px;font-size:0.85rem;color:#c9bfae;font-family:'Karla',sans-serif;font-style:normal;}
+  .stars{color:var(--amber);margin-bottom:14px;font-size:0.95rem;letter-spacing:2px;}
+
+  .reserve{background:#EFE6D3;border-top:1px solid var(--line);}
+  .reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .reserve-form{background:var(--cream);border:1px solid var(--line);border-radius:4px;padding:32px;display:grid;gap:16px;}
+  .reserve-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .reserve-form label{font-size:0.8rem;font-weight:700;margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:0.04em;}
+  .reserve-form input, .reserve-form select{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;font-family:'Karla',sans-serif;font-size:0.94rem;background:#fff;
+  }
+  .reserve-form button{background:var(--rust);color:var(--cream);border:none;padding:14px;border-radius:2px;font-weight:700;font-size:0.95rem;cursor:pointer;letter-spacing:0.02em;}
+  .reserve-form button:hover{background:#6f2c22;}
+  .reserve-info p{color:#4a4136;margin-bottom:24px;max-width:420px;}
+  .info-row{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start;}
+  .info-row div span{display:block;font-size:0.78rem;color:#6b6151;}
+  .info-row div b{font-size:0.98rem;}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer p{font-size:0.85rem;color:#6b6151;}
+  .foot-links{display:flex;gap:22px;}
+  .foot-links a{font-size:0.85rem;text-decoration:none;color:#6b6151;}
+  .foot-links a:hover{color:var(--rust);}
+
+  @media(max-width:860px){
+    .hero-grid,.about-grid,.menu-grid,.reserve-grid{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:1fr 1fr;}
+    .quote-grid{grid-template-columns:1fr;}
+    h1{font-size:2.3rem;}
+    nav a:not(.nav-cta){display:none;}
+    .reserve-form .row2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Wildwood <span>Table</span></div>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#reserve" class="nav-cta">Reserve a Table</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">American Kitchen &amp; Bar — Downtown</div>
+      <h1>Seasonal food, <em>cooked honestly.</em></h1>
+      <p class="lede">Wood-fired mains, local produce, and a bar list built around Tennessee whiskey. Open nightly for dinner, weekends for brunch.</p>
+      <div class="cta">
+        <a href="#reserve" class="btn btn-primary">Reserve a Table</a>
+        <a href="#menu" class="btn btn-outline">View the Menu</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="230" cy="190" r="150" fill="#EFE6D3"/>
+        <circle cx="230" cy="190" r="118" fill="#fff" stroke="#2A2420" stroke-opacity="0.1" stroke-width="1"/>
+        <circle cx="230" cy="190" r="90" fill="#F7F1E6" stroke="#2A2420" stroke-opacity="0.08"/>
+        <!-- plated dish illustration -->
+        <ellipse cx="230" cy="195" rx="62" ry="30" fill="#8C3B2E" opacity="0.9"/>
+        <ellipse cx="230" cy="188" rx="60" ry="27" fill="#C9752E"/>
+        <ellipse cx="205" cy="182" rx="16" ry="10" fill="#5B6B4E"/>
+        <ellipse cx="245" cy="178" rx="12" ry="8" fill="#F7F1E6"/>
+        <ellipse cx="255" cy="196" rx="14" ry="9" fill="#5B6B4E" opacity="0.85"/>
+        <ellipse cx="215" cy="200" rx="10" ry="7" fill="#8C3B2E"/>
+        <!-- fork/knife -->
+        <rect x="110" y="120" width="6" height="140" rx="3" fill="#2A2420" opacity="0.75"/>
+        <rect x="340" y="120" width="6" height="140" rx="3" fill="#2A2420" opacity="0.75"/>
+        <text x="230" y="330" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#8C3B2E">Est. downtown, 2019</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hours-strip">
+    <div class="wrap">
+      <div><b>Dinner</b>Tue – Sun, 5pm – 11pm</div>
+      <div><b>Weekend Brunch</b>Sat – Sun, 10am – 2pm</div>
+      <div><b>Bar</b>Open until midnight</div>
+      <div><b>Location</b>412 Maple St., Nashville, TN</div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="about-visual">
+      <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="260" height="280" rx="6" fill="#fff" stroke="#2A2420" stroke-opacity="0.12"/>
+        <rect x="40" y="45" width="220" height="130" rx="4" fill="#5B6B4E" opacity="0.85"/>
+        <circle cx="150" cy="110" r="34" fill="#EFE6D3" opacity="0.9"/>
+        <path d="M130 110a20 20 0 1140 0 20 20 0 01-40 0z" fill="#C9752E"/>
+        <rect x="40" y="195" width="140" height="12" rx="3" fill="#2A2420"/>
+        <rect x="40" y="216" width="200" height="9" rx="3" fill="#8C7B65"/>
+        <rect x="40" y="236" width="170" height="9" rx="3" fill="#8C7B65"/>
+        <rect x="40" y="266" width="90" height="24" rx="4" fill="#8C3B2E"/>
+        <text x="60" y="282" font-family="Karla, sans-serif" font-size="10" fill="#F7F1E6" font-weight="700">SINCE 2019</text>
+      </svg>
+    </div>
+    <div class="about-copy">
+      <div class="kicker">Our Story</div>
+      <h2>Built on a wood-fired grill and a short, honest menu.</h2>
+      <p>Wildwood Table opened in 2019 with a simple idea: cook a handful of dishes exceptionally well, source everything within a day's drive, and let the grill do most of the talking.</p>
+      <p>Our menu changes with the seasons and the farmers we work with — never longer than one page, always worth the trip.</p>
+      <div class="badge-row">
+        <div><b>4.8★</b>Google Rating</div>
+        <div><b>15+</b>Local Farm Partners</div>
+        <div><b>2019</b>Est. in Nashville</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Menu</div>
+      <h2>A short menu, done properly</h2>
+      <p>A rotating seasonal selection — this is our current dinner lineup.</p>
+    </div>
+    <div class="menu-grid" style="margin-top:44px;">
+      <div class="menu-cat">
+        <h3>To Start</h3>
+        <div class="menu-item"><div><div class="mi-name">Charred Shishito Peppers</div><div class="mi-desc">Flaky salt, calabrian chili aioli</div></div><div class="mi-price">$12</div></div>
+        <div class="menu-item"><div><div class="mi-name">Smoked Trout Toast</div><div class="mi-desc">Rye, dill crème fraîche, pickled shallot</div></div><div class="mi-price">$15</div></div>
+        <div class="menu-item"><div><div class="mi-name">Roasted Beet Salad</div><div class="mi-desc">Whipped goat cheese, hazelnut, sherry vinaigrette</div></div><div class="mi-price">$14</div></div>
+      </div>
+      <div class="menu-cat">
+        <h3>Wood-Fired Mains</h3>
+        <div class="menu-item"><div><div class="mi-name">Half Chicken, Fire-Roasted</div><div class="mi-desc">Charred lemon, herb jus, market greens</div></div><div class="mi-price">$26</div></div>
+        <div class="menu-item"><div><div class="mi-name">Grilled Ribeye, 14oz</div><div class="mi-desc">Bone marrow butter, roasted fingerlings</div></div><div class="mi-price">$42</div></div>
+        <div class="menu-item"><div><div class="mi-name">Cedar-Plank Salmon</div><div class="mi-desc">Charred scallion, citrus glaze</div></div><div class="mi-price">$29</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="background:#EFE6D3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Gallery</div>
+      <h2>Inside the dining room</h2>
+    </div>
+    <div class="gallery" style="margin-top:40px;">
+      <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#8C3B2E"/><circle cx="100" cy="90" r="45" fill="#C9752E" opacity="0.8"/><rect x="20" y="150" width="160" height="10" fill="#2A2420" opacity="0.3"/></svg>
+      <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#5B6B4E"/><rect x="40" y="60" width="120" height="80" rx="6" fill="#EFE6D3" opacity="0.9"/><circle cx="100" cy="100" r="20" fill="#8C3B2E"/></svg>
+      <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#2A2420"/><path d="M40 160 L100 50 L160 160 Z" fill="#C9752E" opacity="0.8"/></svg>
+      <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#C9752E"/><circle cx="70" cy="80" r="30" fill="#F7F1E6" opacity="0.9"/><circle cx="130" cy="120" r="24" fill="#8C3B2E" opacity="0.8"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="quote-strip">
+  <div class="wrap">
+    <div class="section-head" style="max-width:none;">
+      <div class="kicker" style="color:var(--amber);">Reviews</div>
+      <h2 style="color:var(--cream);">What guests are saying</h2>
+    </div>
+    <div class="quote-grid" style="margin-top:40px;">
+      <div class="quote-card">
+        <div class="stars">★★★★★</div>
+        <p>Best ribeye I've had in Nashville, full stop. The bar program alone is worth the visit.</p>
+        <div class="who">— Marcus T., Google Review</div>
+      </div>
+      <div class="quote-card">
+        <div class="stars">★★★★★</div>
+        <p>Small menu, but every single dish is exactly right. Our go-to for anniversaries.</p>
+        <div class="who">— Danielle R., Yelp</div>
+      </div>
+      <div class="quote-card">
+        <div class="stars">★★★★★</div>
+        <p>The brunch is criminally underrated. Get the trout toast, thank me later.</p>
+        <div class="who">— James P., OpenTable</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="reserve">
+  <div class="wrap reserve-grid">
+    <div class="reserve-info">
+      <div class="kicker">Reservations</div>
+      <h2>Book your table</h2>
+      <p>Walk-ins welcome at the bar. For dining room seating, we recommend booking ahead, especially Friday and Saturday.</p>
+      <div class="info-row"><div><span>Address</span><b>412 Maple St., Nashville, TN 37203</b></div></div>
+      <div class="info-row"><div><span>Phone</span><b>(615) 555-0148</b></div></div>
+      <div class="info-row"><div><span>Email</span><b>hello@wildwoodtable.com</b></div></div>
+    </div>
+    <form class="reserve-form" onsubmit="event.preventDefault();">
+      <div class="row2">
+        <div><label for="name">Name</label><input id="name" type="text" placeholder="Full name"></div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel" placeholder="(615) 555-0100"></div>
+      </div>
+      <div class="row2">
+        <div><label for="date">Date</label><input id="date" type="date"></div>
+        <div><label for="time">Time</label><input id="time" type="time"></div>
+      </div>
+      <div>
+        <label for="party">Party Size</label>
+        <select id="party">
+          <option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option>
+        </select>
+      </div>
+      <button type="submit">Request Reservation</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 The Wildwood Table. All rights reserved.</p>
+    <div class="foot-links">
+      <a href="#">Instagram</a>
+      <a href="#">Private Events</a>
+      <a href="#reserve">Reserve</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
